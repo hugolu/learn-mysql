@@ -51,6 +51,27 @@
 
 ### 字串
 
+|Type|Length|Note|
+|---|---|---|
+|CHAR(M)|1 ~ 255|固定長度|
+|VARCHAR(M)|1 ~ 255|可變長度|
+|BLOB, TEXT|1 ~ 65535|使用者不定義長度|
+|TINYBLOB, TINYTEXT|1 ~ 255|使用者不定義長度|
+|MEDIUMBLOB, MEDIUMTEXT|1 ~ 16777215|使用者不定義長度|
+|LONGBLOB, LONGTEXT|1 ~ 4294967295|使用者不定義長度|
+|ENUM|1 ~ 65535|枚舉類型|
+
+- BLOBs: "Binary Large Objects"
+
+ENUM 是一個字元串對象，其值通常選自一個允許值列表中，該列表在表創建時的列規格說明中被明確地列舉。在下列某些情況下，值也可以是空串("") 或NULL。
+例如，指定為 ENUM("one", "two", "three") 的一個列，可以有下面所顯示的任一值。
+
+- NULL: NULL
+- "": 0
+- "one": 1
+- "two": 2
+- "three": 3
+
 
 <a name="Connection"></a>
 ## SQL連線
