@@ -10,3 +10,4 @@
 ### 參考資料
 
 * [MySQL Tutorial](http://www.tutorialspoint.com/mysql/)
+* [MySQL 超新手入門](http://www.codedata.com.tw/tag/mysql/)
