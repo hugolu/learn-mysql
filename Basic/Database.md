@@ -7,7 +7,7 @@
 <a name="Create"></a>
 ## Create
 
-Syntax: `mysqladmin create <db name>`，透過 mysqladmin 創建資料庫
+透過 mysqladmin 創建資料庫：`mysqladmin create <db name>`
 
 ```
 # mysqladmin -u root -p create TUTORIALS
