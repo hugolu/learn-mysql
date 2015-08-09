@@ -1,32 +1,16 @@
 # Table
 
-- [CREATE](#CREATE)
-- [DROP](#DROP)
+- 產生表格：`CREATE TABLE <table_name> (<column_name> <column_type>)`
+- 刪除表格：`DROP TABLE <table_name>`
 
-## CREATE
-
- 產生表格：`CREATE TABLE <table_name> (<column_name> <column_type>);`
-
-```MySQL
-mysql> use TUTORIALS;
-Database changed
-mysql> CREATE TABLE tutorials_tbl(
-    -> tutorial_id INT NOT NULL AUTO_INCREMENT,
-    -> tutorial_title VARCHAR(100) NOT NULL,
-    -> tutorial_author VARCHAR(40) NOT NULL,
-    -> submission_date DATE,
-    -> PRIMARY KEY ( tutorial_id )
-    -> );
-Query OK, 0 rows affected (0.03 sec)
 ```
+DROP TABLE IF EXISTS `tutorials_tbl`;
 
-## DROP
-
-刪除表格：`DROP TABLE <table_name>;`
-
-```MySQL
-mysql> use TUTORIALS;
-Database changed
-mysql> DROP TABLE tutorials_tbl;
-Query OK, 0 rows affected (0.01 sec)
+CREATE TABLE `tutorials_tbl` (
+  `tutorial_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tutorial_title` varchar(100) NOT NULL,
+  `tutorial_author` varchar(40) NOT NULL,
+  `submission_date` date DEFAULT NULL,
+  PRIMARY KEY (`tutorial_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 ```
