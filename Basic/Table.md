@@ -5,7 +5,7 @@
 
 ## CREATE
 
- 產生表格：`CREATE TABLE <tbl name> ( ... );`
+ 產生表格：`CREATE TABLE <table_name> (<column_name> <column_type>);`
 
 ```MySQL
 mysql> use TUTORIALS;
@@ -22,7 +22,7 @@ Query OK, 0 rows affected (0.03 sec)
 
 ## DROP
 
-刪除表格：`DROP TABLE <tbl name>;`
+刪除表格：`DROP TABLE <table_name>;`
 
 ```MySQL
 mysql> use TUTORIALS;
