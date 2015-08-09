@@ -1,24 +1,12 @@
-# 從頭開始
+# 資料型別
 
-- [SQL語言的動詞](#Verbs)
-- [SQL資料型別](#DataTypes)
-- [SQL連線](#Connection)
-- [SQL備份與還原](#BackupRestore)
+- [整數](#Integer)
+- [浮點數](#FloatingPoint)
+- [日期時間](#DataTime)
+- [字串](#String)
 
-<a name="Verbs"></a>
-## SQL語言的動詞
-
-|SQL功能|動詞|
-|---|---|
-|資料定義|CREATE, DROP, ALTER|
-|資料操作|INSERT, UPDATE, DELETE|
-|資料查詢|SELECT|
-|資料控制|GRANT, REVOKE|
-
-<a name="DataTypes"></a>
-## SQL資料型別
-
-### 整字
+<a name="Integer"></a>
+## 整數
 
 |Type|Byte(s)|Digits|signed|unsigned|
 |---|---|---|---|---|
@@ -28,7 +16,8 @@
 |INT|4|11|-2147483648 ~ 2147483647|0 ~ 4294967295|
 |BIGINT|8|20|-9223372036854775808 ~ 9223372036854775807|0 ~ 18446744073709551615|
 
-### 浮點數
+<a name="FloatingPoint"></a>
+## 浮點數
 
 |Type|Byte(s)|Default|Max|Synonym|Note|
 |---|---|---|---|---|---|
@@ -39,7 +28,8 @@
 - M：所有數字的長度，不含小數點
 - D：小數點後面數字的個數
 
-### 日期時間
+<a name="DataTime"></a>
+## 日期時間
 
 |Type|Byte(s)|Format|Range|
 |---|---|---|---|
@@ -50,7 +40,8 @@
 |DATETIME|8|YYYY-MM-DD HH:MM:SS|'1000-01-01 00:00:00' ~ '9999-12-31 23:59:59'|
 |TIMESTAMP|4|YYYY-MM-DD HH:MM:SS|'1970-01-01 00:00:01' ~ '2038-01-19 03:14:07'|
 
-### 字串
+<a name="String"></a>
+## 字串
 
 |Type|Length|Note|
 |---|---|---|
@@ -72,39 +63,3 @@ ENUM 是一個字元串對象，其值通常選自一個允許值列表中，該
 - "one": 1
 - "two": 2
 - "three": 3
-
-
-<a name="Connection"></a>
-## SQL連線
-
-登入：`mysql -h <host name> -u <user name> -p`
-
-- `-h <host name>` 主機名稱
-- `-u <user name>` 用戶名稱
-- `-p` 登入密碼
-
-登出：`mysql> quit;`
-
-- 登入後，執行`quit`結束連線
-
-```mysql
-$ mysql -h localhost -u root -p
-Enter password:
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 57
-Server version: 5.5.43-0+deb7u1 (Debian)
-
-Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-mysql> quit;
-Bye
-```
-
-<a name="BackupRestore"></a>
-## SQL備份與還原
