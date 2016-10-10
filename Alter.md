@@ -69,10 +69,15 @@ MariaDB [test]> DESC TBL;
 
 ## 變更欄位定義或名稱
 
+```
+ALTER TABLE tbl_name CHANGE [COLUMN] old_col_name new_col_name column_definition [FIRST|AFTER col_name]
+ALTER TABLE tbl_name MODIFY [COLUMN] col_name column_definition [FIRST | AFTER col_name]
+```
+
 ### 修改欄位定義
 ```
-MariaDB [test]> ALTER TABLE TESTALTER MODIFY c CHAR(10);
-MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
+MariaDB [test]> ALTER TABLE TBL MODIFY c CHAR(10);
+MariaDB [test]> DESC TBL;
 +-------+----------+------+-----+---------+-------+
 | Field | Type     | Null | Key | Default | Extra |
 +-------+----------+------+-----+---------+-------+
@@ -83,8 +88,8 @@ MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
 
 ### 變更欄位名稱/定義
 ```
-MariaDB [test]> ALTER TABLE TESTALTER CHANGE i j BIGINT;
-MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
+MariaDB [test]> ALTER TABLE TBL CHANGE i j BIGINT;
+MariaDB [test]> DESC TBL;
 +-------+------------+------+-----+---------+-------+
 | Field | Type       | Null | Key | Default | Extra |
 +-------+------------+------+-----+---------+-------+
@@ -93,62 +98,71 @@ MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
 +-------+------------+------+-----+---------+-------+
 ```
 
+### 改變欄位位置
 ```
-MariaDB [test]> ALTER TABLE TESTALTER CHANGE j j INT;
-MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
-+-------+----------+------+-----+---------+-------+
-| Field | Type     | Null | Key | Default | Extra |
-+-------+----------+------+-----+---------+-------+
-| c     | char(10) | YES  |     | NULL    |       |
-| j     | int(11)  | YES  |     | NULL    |       |
-+-------+----------+------+-----+---------+-------+
-```
-
-## 設定欄位預設值
-```
-MariaDB [test]> ALTER TABLE TESTALTER MODIFY j BIGINT NOT NULL DEFAULT 100;
-MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
+MariaDB [test]> ALTER TABLE TBL MODIFY c CHAR(10) AFTER j;
+MariaDB [test]> DESC TBL;
 +-------+------------+------+-----+---------+-------+
 | Field | Type       | Null | Key | Default | Extra |
 +-------+------------+------+-----+---------+-------+
+| j     | bigint(20) | YES  |     | NULL    |       |
 | c     | char(10)   | YES  |     | NULL    |       |
++-------+------------+------+-----+---------+-------+
+```
+
+### 修改欄位預設值
+```
+MariaDB [test]> ALTER TABLE TBL MODIFY j BIGINT NOT NULL DEFAULT 100;
+MariaDB [test]> DESC TBL;
++-------+------------+------+-----+---------+-------+
+| Field | Type       | Null | Key | Default | Extra |
++-------+------------+------+-----+---------+-------+
 | j     | bigint(20) | NO   |     | 100     |       |
+| c     | char(10)   | YES  |     | NULL    |       |
 +-------+------------+------+-----+---------+-------+
 ```
 
 ## 改變欄位預設值
 ```
-MariaDB [test]> ALTER TABLE TESTALTER ALTER j SET DEFAULT 1000;
-MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
+ALTER TABLE tbl_name ALTER [COLUMN] col_name {SET DEFAULT literal | DROP DEFAULT}
+```
+
+### 重設預設值
+```
+MariaDB [test]> ALTER TABLE TBL ALTER j SET DEFAULT 1000;
+MariaDB [test]> DESC TBL;
 +-------+------------+------+-----+---------+-------+
 | Field | Type       | Null | Key | Default | Extra |
 +-------+------------+------+-----+---------+-------+
-| c     | char(10)   | YES  |     | NULL    |       |
 | j     | bigint(20) | NO   |     | 1000    |       |
+| c     | char(10)   | YES  |     | NULL    |       |
 +-------+------------+------+-----+---------+-------+
 ```
 
+### 刪除預設值
 ```
-MariaDB [test]> ALTER TABLE TESTALTER ALTER j DROP DEFAULT;
-MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
+MariaDB [test]> ALTER TABLE TBL ALTER j DROP DEFAULT;
+MariaDB [test]> DESC TBL;
 +-------+------------+------+-----+---------+-------+
 | Field | Type       | Null | Key | Default | Extra |
 +-------+------------+------+-----+---------+-------+
-| c     | char(10)   | YES  |     | NULL    |       |
 | j     | bigint(20) | NO   |     | NULL    |       |
+| c     | char(10)   | YES  |     | NULL    |       |
 +-------+------------+------+-----+---------+-------+
 ```
 
 ## 變更表格型態
 ```
-MariaDB [test]> SHOW TABLE STATUS LIKE 'TESTALTER'\G
+MariaDB [test]> SHOW TABLE STATUS LIKE 'TBL'\G
 *************************** 1. row ***************************
-           Name: TESTALTER
+           Name: TBL
          Engine: InnoDB
               ...
-
-MariaDB [test]> ALTER TABLE TESTALTER ENGINE = MYISAM;
-
+```
+```
+MariaDB [test]> ALTER TABLE TBL ENGINE = MYISAM;
+```
+```
 MariaDB [test]> SHOW TABLE STATUS LIKE 'TESTALTER'\G
 *************************** 1. row ***************************
            Name: TESTALTER
@@ -158,5 +172,9 @@ MariaDB [test]> SHOW TABLE STATUS LIKE 'TESTALTER'\G
 
 ## 變更表格名稱
 ```
-MariaDB [test]> ALTER TABLE TESTALTER RENAME TO TESTALTER2;
+ALTER TABLE tbl_name RENAME [TO|AS] new_tbl_name
+```
+
+```
+MariaDB [test]> ALTER TABLE TESTALTER RENAME TO TBL2;
 ```
