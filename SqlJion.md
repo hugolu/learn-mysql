@@ -1,6 +1,6 @@
 # Sql Jions
 
-![Sql Jions](SQL_JIONS.png)
+![Sql Jions](picture/SQL_JIONS.png)
 
 ## test samples
 
@@ -46,7 +46,7 @@ SELECT * FROM B;
 
 ## LEFT JOIN
 
-![Left Join](JOIN1.png)
+![Left Join](picture/JOIN1.png)
 
 ```mysql
 SELECT * FROM A LEFT JOIN B ON A2=B3;
@@ -59,7 +59,7 @@ SELECT * FROM A LEFT JOIN B ON A2=B3;
 +------+------+------+------+------+
 ```
 
-![Left Jion 2](JOIN2.png)
+![Left Jion 2](picture/JOIN2.png)
 ```mysql
 SELECT * FROM A LEFT JOIN B ON A2=B3 WHERE B3 IS NULL;
 +------+------+------+------+------+
@@ -71,7 +71,7 @@ SELECT * FROM A LEFT JOIN B ON A2=B3 WHERE B3 IS NULL;
 
 ## RIGHT JOIN
 
-![Right Join 1](JOIN3.png)
+![Right Join 1](picture/JOIN3.png)
 ```mysql
 SELECT * FROM A RIGHT JOIN B ON A2=B3;
 +------+------+------+------+------+
@@ -83,7 +83,7 @@ SELECT * FROM A RIGHT JOIN B ON A2=B3;
 +------+------+------+------+------+
 ```
 
-![Rigth Join 2](JOIN4.png)
+![Rigth Join 2](picture/JOIN4.png)
 ```mysql
 SELECT * FROM A RIGHT JOIN B ON A2=B3 WHERE A2 IS NULL;
 +------+------+------+------+------+
@@ -95,7 +95,7 @@ SELECT * FROM A RIGHT JOIN B ON A2=B3 WHERE A2 IS NULL;
 
 ## OUTER JOIN
 
-![Outer Join](JOIN5.png)
+![Outer Join](picture/JOIN5.png)
 ```mysql
 SELECT * FROM A FULL OUTER JOIN B ON A2 = B3;
 ```
@@ -113,7 +113,7 @@ MySQL 沒有支援full outer join，但可以使用left join & right join做到�
 +------+------+------+------+------+
 ```
 
-![Outer Join 2](JOIN6.png)
+![Outer Join 2](picture/JOIN6.png)
 ```mysql
 (SELECT * FROM A LEFT JOIN B ON A2 = B3 WHERE B3 IS NULL) UNION (SELECT * FROM A RIGHT JOIN B ON A2 = B3 WHERE A2 IS NULL);
 +------+------+------+------+------+
@@ -126,7 +126,7 @@ MySQL 沒有支援full outer join，但可以使用left join & right join做到�
 
 ## INNER JOIN
 
-![Inner](JOIN7.png)
+![Inner](picture/JOIN7.png)
 ```mysql
 SELECT * FROM A INNER JOIN B ON A2 = B3;
 +------+------+------+------+------+
