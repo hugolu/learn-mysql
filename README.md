@@ -9,6 +9,7 @@
 ## 參考資料
 
 - [MySQL Tutorial](http://www.tutorialspoint.com/mysql/)
+- [W3Schools SQL Tutorial](http://www.w3schools.com/)
 - [MySQL 超新手入門](http://www.codedata.com.tw/tag/mysql/)
 
 ## 基礎部分
