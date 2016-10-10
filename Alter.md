@@ -163,9 +163,9 @@ MariaDB [test]> SHOW TABLE STATUS LIKE 'TBL'\G
 MariaDB [test]> ALTER TABLE TBL ENGINE = MYISAM;
 ```
 ```
-MariaDB [test]> SHOW TABLE STATUS LIKE 'TESTALTER'\G
+MariaDB [test]> SHOW TABLE STATUS LIKE 'TBL'\G
 *************************** 1. row ***************************
-           Name: TESTALTER
+           Name: TBL
          Engine: MyISAM
               ...
 ```
