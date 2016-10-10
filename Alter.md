@@ -2,12 +2,8 @@
 
 準備測試資料
 ```
-MariaDB [test]> CREATE TABLE TESTALTER (
-    -> i INT,
-    -> c CHAR(1)
-    -> );
-
-MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
+MariaDB [test]> CREATE TABLE TBL (i INT, c CHAR(1));
+MariaDB [test]> DESC TBL;
 +-------+---------+------+-----+---------+-------+
 | Field | Type    | Null | Key | Default | Extra |
 +-------+---------+------+-----+---------+-------+
@@ -18,10 +14,15 @@ MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
 
 ## 修改欄位
 
+```
+ALTER TABLE tbl_name ADD [COLUMN] col_name column_definition [FIRST | AFTER col_name]
+ALTER TABLE tbl_name DROP [COLUMN] col_name
+```
+
 ### 刪除欄位
 ```
-MariaDB [test]> ALTER TABLE TESTALTER DROP i;
-MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
+MariaDB [test]> ALTER TABLE TBL DROP i;
+MariaDB [test]> DESC TBL;
 +-------+---------+------+-----+---------+-------+
 | Field | Type    | Null | Key | Default | Extra |
 +-------+---------+------+-----+---------+-------+
@@ -31,8 +32,8 @@ MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
 
 ### 增加欄位
 ```
-MariaDB [test]> ALTER TABLE TESTALTER ADD i INT;
-MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
+MariaDB [test]> ALTER TABLE TBL ADD i INT;
+MariaDB [test]> DESC TBL;
 +-------+---------+------+-----+---------+-------+
 | Field | Type    | Null | Key | Default | Extra |
 +-------+---------+------+-----+---------+-------+
@@ -43,9 +44,9 @@ MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
 
 ### 改變位置
 ```
-MariaDB [test]> ALTER TABLE TESTALTER DROP i;
-MariaDB [test]> ALTER TABLE TESTALTER ADD i INT FIRST;
-MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
+MariaDB [test]> ALTER TABLE TBL DROP i;
+MariaDB [test]> ALTER TABLE TBL ADD i INT FIRST;
+MariaDB [test]> DESC TBL;
 +-------+---------+------+-----+---------+-------+
 | Field | Type    | Null | Key | Default | Extra |
 +-------+---------+------+-----+---------+-------+
@@ -55,9 +56,9 @@ MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
 ```
 
 ```
-MariaDB [test]> ALTER TABLE TESTALTER DROP i;
-MariaDB [test]> ALTER TABLE TESTALTER ADD i INT AFTER c;
-MariaDB [test]> SHOW COLUMNS FROM TESTALTER;
+MariaDB [test]> ALTER TABLE TBL DROP i;
+MariaDB [test]> ALTER TABLE TBL ADD i INT AFTER c;
+MariaDB [test]> DESC TBL;
 +-------+---------+------+-----+---------+-------+
 | Field | Type    | Null | Key | Default | Extra |
 +-------+---------+------+-----+---------+-------+
