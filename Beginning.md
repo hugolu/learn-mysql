@@ -1,10 +1,9 @@
 # 從頭開始
 
-- [SQL語言的動詞](#Verbs)
-- [SQL連線](#Connection)
-- [SQL備份與還原](#BackupRestore)
+- [SQL語言的動詞](#sql語言的動詞)
+- [SQL連線](#sql連線)
+- [SQL備份與還原](#sql備份與還原)
 
-<a name="Verbs"></a>
 ## SQL語言的動詞
 
 |SQL功能|動詞|
@@ -14,7 +13,6 @@
 |資料查詢|SELECT|
 |資料控制|GRANT, REVOKE|
 
-<a name="Connection"></a>
 ## SQL連線
 
 登入：`mysql -h <host name> -u <user name> -p`
@@ -46,7 +44,6 @@ mysql> quit;
 Bye
 ```
 
-<a name="BackupRestore"></a>
 ## SQL備份與還原
 
 ### 備份
