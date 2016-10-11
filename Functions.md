@@ -128,7 +128,31 @@ SELECT SUM(Quantity) AS TotalItemsOrdered FROM OrderDetails;
 根據輸入值，得到一個結果
 
 ### UCAS 將欄位字串轉為大寫
+
+#### SQL 語法
+```sql
+SELECT UCASE(column_name) FROM table_name;
+SELECT UPPER(column_name) FROM table_name;
+```
+
+#### 將客戶名字轉成大寫
+```sql
+SELECT UCASE(CustomerName) AS Customer, City FROM Customers;
+```
+
 ### LCASE 將欄位字串轉為小寫
+
+#### 語法
+```sql
+SELECT LCASE(column_name) FROM table_name;
+SELECT LOWER(column_name) FROM table_name;
+```
+
+#### 將客戶名字轉成小寫
+```sql
+SELECT LCASE(CustomerName) AS Customer, City FROM Customers;
+```
+
 ### MID 抽取欄位字串內的字元
 ### LEN 回傳字串長度
 ### ROUND 四捨五入
