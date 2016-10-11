@@ -28,8 +28,66 @@ SELECT ProductName, Price FROM Products WHERE Price>(SELECT AVG(Price) FROM Prod
 ```
 
 ### COUNT 計算列數
+
+#### 語法
+```sql
+SELECT COUNT(column_name) FROM table_name;
+SELECT COUNT(DISTINCT column_name) FROM table_name;
+```
+#### 計算客戶#7的訂單數
+```sql
+SELECT COUNT(CustomerID) AS OrdersFromCustomerID7 FROM Orders
+WHERE CustomerID=7;
+```
+
+#### 計算所有訂單數
+```sql
+SELECT COUNT(*) AS NumberOfOrders FROM Orders;
+```
+
+#### 計算所有訂單中客戶數
+```sql
+SELECT COUNT(DISTINCT CustomerID) AS NumberOfCustomers FROM Orders;
+```
+
 ### FIRST 取得第一筆資料
+
+#### SQL 語法
+```sql
+SELECT FIRST(column_name) FROM table_name;
+```
+
+#### MySQL 語法
+```sql
+SELECT column_name FROM table_name
+ORDER BY column_name ASC
+LIMIT 1;
+```
+
+#### 找出第一個客戶名字
+```sql
+SELECT CustomerName FROM Customers ORDER BY CustomerName ASC LIMIT 1;
+```
+
 ### LAST 取得最末筆資料
+
+#### SQL 語法
+```sql
+SELECT LAST(column_name) FROM table_name;
+```
+
+#### MySQL 語法
+```sql
+SELECT column_name FROM table_name
+ORDER BY column_name DESC
+LIMIT 1;
+```
+
+#### 找出最末個客戶名字
+```sql
+SELECT CustomerName FROM Customers ORDER BY CustomerName DESC LIMIT 1;
+```
+
 ### MAX 找出最大值
 ### MIN 找出最小值
 ### SUM 計算總和
