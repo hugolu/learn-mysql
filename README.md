@@ -9,7 +9,7 @@
 ## 參考資料
 
 - [MySQL Tutorial](http://www.tutorialspoint.com/mysql/)
-- [W3Schools SQL Tutorial](http://www.w3schools.com/)
+- [W3Schools SQL Tutorial](http://www.w3schools.com/sql/default.asp)
 - [MySQL 超新手入門](http://www.codedata.com.tw/tag/mysql/)
 
 ## 基礎部分
@@ -20,3 +20,4 @@
 - [Table 操作指令](Table.md)
 - [Query 操作指令](Query.md)
 - [Jion 操作指令](SqlJion.md)
+- [Alter 操作指令](Alter.md)
