@@ -56,7 +56,7 @@ DROP TABLE IF EXISTS `Customers`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Customers` (
   `CustomerID` int(11) DEFAULT NULL,
-  `CompanyName` varchar(40) DEFAULT NULL,
+  `CustomerName` varchar(40) DEFAULT NULL,
   `ContactName` varchar(30) DEFAULT NULL,
   `Address` varchar(60) DEFAULT NULL,
   `City` varchar(15) DEFAULT NULL,
@@ -242,4 +242,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-11  8:16:05
+-- Dump completed on 2016-10-11  9:25:42
