@@ -89,8 +89,40 @@ SELECT CustomerName FROM Customers ORDER BY CustomerName DESC LIMIT 1;
 ```
 
 ### MAX 找出最大值
+
+#### 語法
+```sql
+SELECT MAX(column_name) FROM table_name;
+```
+
+#### 找出最貴的商品
+```sql
+SELECT MAX(Price) AS HighestPrice FROM Products;
+```
+
 ### MIN 找出最小值
+
+#### 語法
+```sql
+SELECT MIN(column_name) FROM table_name;
+```
+
+#### 找出最便宜的商品
+```sql
+SELECT MIN(Price) AS SmallestOrderPrice FROM Products;
+```
+
 ### SUM 計算總和
+
+#### 語法
+```sql
+SELECT SUM(column_name) FROM table_name;
+```
+
+#### 計算物件總數
+```sql
+SELECT SUM(Quantity) AS TotalItemsOrdered FROM OrderDetails;
+```
 
 ## SQL Scalar functions
 根據輸入值，得到一個結果
