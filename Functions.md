@@ -124,6 +124,44 @@ SELECT SUM(column_name) FROM table_name;
 SELECT SUM(Quantity) AS TotalItemsOrdered FROM OrderDetails;
 ```
 
+### GROUP BY
+
+#### 語法
+```sql
+SELECT column_name, aggregate_function(column_name)
+FROM table_name
+WHERE column_name operator value
+GROUP BY column_name;
+```
+
+#### 合併表格，算出每個 Shipper 的訂單數
+```sql
+SELECT Shippers.ShipperName,COUNT(Orders.OrderID) AS NumberOfOrders FROM Orders
+LEFT JOIN Shippers
+ON Orders.ShipperID=Shippers.ShipperID
+GROUP BY ShipperName;
+```
+
+#### 合併表格，算出每個 Shipper 裡面每個 Employee 的訂單數
+```sql
+SELECT ShipperID, EmployeeID, COUNT(OrderID) AS NumberOforders FROM Orders GROUP BY ShipperID, EmployeeID;
+```
+```sql
+SELECT Orders.ShipperID, Orders.EmployeeID, COUNT(Orders.OrderID) AS NumberOforders
+FROM Orders
+GROUP BY Orders.ShipperID, Orders.EmployeeID;
+```
+```sql
+SELECT Shippers.ShipperName, Orders.EmployeeID, COUNT(Orders.OrderID) AS NumberOforders
+FROM (Orders INNER JOIN Shippers ON Orders.ShipperID=Shippers.ShipperID)
+GROUP BY Orders.ShipperID, Orders.EmployeeID;
+```
+```sql
+SELECT Shippers.ShipperName, Employees.LastName, COUNT(Orders.OrderID) AS NumberOforders
+FROM (Orders INNER JOIN Shippers ON Orders.ShipperID=Shippers.ShipperID) INNER JOIN Employees ON Orders.EmployeeID=Employees.EmployeeID
+GROUP BY Orders.ShipperID, Orders.EmployeeID;
+```
+
 ## SQL Scalar functions
 根據輸入值，得到一個結果
 
