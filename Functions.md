@@ -125,6 +125,7 @@ SELECT SUM(Quantity) AS TotalItemsOrdered FROM OrderDetails;
 ```
 
 ### GROUP BY
+與 aggregate function 合併使用，得到欄位結果的合併值
 
 #### 語法
 ```sql
@@ -160,6 +161,28 @@ GROUP BY Orders.ShipperID, Orders.EmployeeID;
 SELECT Shippers.ShipperName, Employees.LastName, COUNT(Orders.OrderID) AS NumberOforders
 FROM (Orders INNER JOIN Shippers ON Orders.ShipperID=Shippers.ShipperID) INNER JOIN Employees ON Orders.EmployeeID=Employees.EmployeeID
 GROUP BY Orders.ShipperID, Orders.EmployeeID;
+```
+
+### HAVING
+因為 WHERE 關鍵字無法使用 aggregate functions，透過 HAVING 限制計算結果
+
+#### 語法
+```sql
+SELECT column_name, aggregate_function(column_name)
+FROM table_name
+WHERE column_name operator value
+GROUP BY column_name
+HAVING aggregate_function(column_name) operator value;
+```
+
+#### 找出擁有大於10筆訂單的 Employee
+```sql
+SELECT EmployeeID, COUNT(OrderID) AS NumberOfOrders FROM Orders GROUP BY EmployeeID HAVING NumberOfOrders > 10;
+```
+```sql
+SELECT LastName, COUNT(OrderID) AS NumberOfOrders
+FROM Orders INNER JOIN Employees ON Orders.EmployeeID=Employees.EmployeeID
+GROUP BY LastName HAVING NumberOfOrders > 10;
 ```
 
 ## SQL Scalar functions
