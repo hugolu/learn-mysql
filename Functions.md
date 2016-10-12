@@ -154,7 +154,78 @@ SELECT LCASE(CustomerName) AS Customer, City FROM Customers;
 ```
 
 ### MID 抽取欄位字串內的字元
+
+#### 語法
+```sql
+SELECT MID(column_name,start,length) AS some_name FROM table_name;
+SELECT SUBSTRING(column_name,start,length) AS some_name FROM table_name;
+SELECT SUBSTR(column_name,start,length) AS some_name FROM table_name;
+```
+
+#### 取得城市名簡寫
+```sql
+SELECT MID(City,1,4) AS ShortCity FROM Customers;
+```
+
 ### LEN 回傳字串長度
+
+#### 語法
+```sql
+SELECT LEN(column_name) FROM table_name;
+SELECT LENGTH(column_name) FROM table_name;
+```
+
+#### 取得地址字串長度
+```sql
+SELECT CustomerName, LENGTH(Address) as LengthOfAddress FROM Customers;
+```
+
 ### ROUND 四捨五入
+
+#### 語法
+```sql
+SELECT ROUND(column_name,decimals) FROM table_name;
+```
+
+#### 價格四捨五入
+```sql
+SELECT ProductName, ROUND(Price, 0) AS RoundedPrice FROM Products;
+```
+
 ### NOW 取得目前系統日期與時間
-###FORMAT 格式化欄位表示方式
+
+#### 語法
+```sql
+SELECT NOW() FROM table_name;
+```
+
+#### 顯示目前系統時間
+```sql
+SELECT NOW();
+```
+
+### FORMAT 數值格式化
+
+#### 語法
+```sql
+SELECT FORMAT(column_name,format) FROM table_name;
+```
+
+#### 格式化且四捨五入到小數後兩位
+```sql
+SELECT FORMAT(1234.5678, 2); # 1,234.57
+SELECT FORMAT(8765.4321, 2); # 8,765.43
+```
+
+### DATE_FORMAT 日期格式化
+
+#### 語法
+```sql
+SELECT DATE_FORMAT(column_name,format) FROM table_name;
+```
+- 格式參考 [MySQL DATE_FORMAT() Function](http://www.w3schools.com/sql/func_date_format.asp)
+
+#### 格式化目前系統時間
+```sql
+SELECT DATE_FORMAT(NOW(), "%Y-%m-%d %H:%i:%s");
+```
