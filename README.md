@@ -10,7 +10,7 @@
 
 - [MySQL Tutorial](http://www.tutorialspoint.com/mysql/)
 - [W3Schools SQL Tutorial](http://www.w3schools.com/sql/default.asp)
-- [MySQL 超新手入門](http://www.codedata.com.tw/tag/mysql/)
+- [Webucator SQL Free Tutorial](https://www.webucator.com/tutorial/learn-sql/index.cfm) (值得好好研究)
 
 ## 基礎部分
 
