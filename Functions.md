@@ -145,22 +145,16 @@ GROUP BY ShipperName;
 
 #### 合併表格，算出每個 Shipper 裡面每個 Employee 的訂單數
 ```sql
-SELECT ShipperID, EmployeeID, COUNT(OrderID) AS NumberOforders FROM Orders GROUP BY ShipperID, EmployeeID;
-```
-```sql
-SELECT Orders.ShipperID, Orders.EmployeeID, COUNT(Orders.OrderID) AS NumberOforders
+SELECT ShipperID, EmployeeID, COUNT(OrderID) NumberOfOrders
 FROM Orders
-GROUP BY Orders.ShipperID, Orders.EmployeeID;
+GROUP BY ShipperID, EmployeeID;
 ```
 ```sql
-SELECT Shippers.ShipperName, Orders.EmployeeID, COUNT(Orders.OrderID) AS NumberOforders
-FROM (Orders INNER JOIN Shippers ON Orders.ShipperID=Shippers.ShipperID)
-GROUP BY Orders.ShipperID, Orders.EmployeeID;
-```
-```sql
-SELECT Shippers.ShipperName, Employees.LastName, COUNT(Orders.OrderID) AS NumberOforders
-FROM (Orders INNER JOIN Shippers ON Orders.ShipperID=Shippers.ShipperID) INNER JOIN Employees ON Orders.EmployeeID=Employees.EmployeeID
-GROUP BY Orders.ShipperID, Orders.EmployeeID;
+SELECT s.ShipperName, e.LastName, COUNT(o.OrderID) NumberOfOrders
+FROM Orders o
+  JOIN Shippers s ON o.ShipperID=s.ShipperID
+  JOIN Employees e ON o.EmployeeID=e.EmployeeID
+GROUP BY o.ShipperID, o.EmployeeID;
 ```
 
 ### HAVING
@@ -177,12 +171,17 @@ HAVING aggregate_function(column_name) operator value;
 
 #### 找出擁有大於10筆訂單的 Employee
 ```sql
-SELECT EmployeeID, COUNT(OrderID) AS NumberOfOrders FROM Orders GROUP BY EmployeeID HAVING NumberOfOrders > 10;
+SELECT EmployeeID, COUNT(OrderID) NumberOfOrders
+FROM Orders
+GROUP BY EmployeeID
+HAVING COUNT(OrderID) > 10;
 ```
 ```sql
-SELECT LastName, COUNT(OrderID) AS NumberOfOrders
-FROM Orders INNER JOIN Employees ON Orders.EmployeeID=Employees.EmployeeID
-GROUP BY LastName HAVING NumberOfOrders > 10;
+SELECT e.LastName, COUNT(o.OrderID) AS NumberOfOrders
+FROM Orders o
+  INNER JOIN Employees e ON o.EmployeeID=e.EmployeeID
+GROUP BY e.LastName
+HAVING COUNT(o.OrderID) > 10;
 ```
 
 ## SQL Scalar functions
